@@ -29,11 +29,18 @@ gem install rake && \
 gem install fastlane && \
 gem install bundler && \
 # Install ktlint
-curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.50.0/ktlint && chmod a+x ktlint && mv ktlint /usr/local/bin/ && \
+curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.50.0/ktlint && \
+chmod a+x ktlint && \
+mv ktlint /usr/local/bin/ && \
 # Install reviewdog
-curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s && mv ./bin/reviewdog /usr/local/bin/reviewdog && \
+curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s && \
+mv ./bin/reviewdog /usr/local/bin/reviewdog && \
 # Install detekt
-curl -sSLO https://github.com/detekt/detekt/releases/download/v1.23.0/detekt-cli-1.23.0.zip && unzip detekt-cli-1.23.0.zip && mv ./detekt-cli-1.23.0 /usr/local/bin/detekt && \
+curl -sSLO https://github.com/detekt/detekt/releases/download/v1.23.0/detekt-cli-1.23.0.zip && \
+unzip detekt-cli-1.23.0.zip && \
+rm detekt-cli-1.23.0.zip && \
+mv ./detekt-cli-1.23.0 /usr/local/bin/detekt && \
+ln -s /usr/local/bin/detekt/bin/detekt-cli /usr/local/bin/detekt-cli && \
 # Clean up
 rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
 apt-get autoremove -y && \
